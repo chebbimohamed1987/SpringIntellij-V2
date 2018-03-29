@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+    <link rel="stylesheet" href="../../static/css/style.css">
+</head>
+<body>
+<p><strong>Affichage : </strong></p>
+<div>
+
+<ul>
+    <li th:text="${carnet.id}" ></li>
+    <li th:text="${carnet.nom}" ></li>
+    <li th:text="${carnet.prenom}" ></li>
+    <li th:text="${carnet.dateDeNaissance}" ></li>
+    <li th:text="${carnet.tel}" ></li>
+    <li th:text="${carnet.email}" ></li>
+    <li th:text="${carnet.cp}" ></li>
+    <li th:text="${carnet.ville}" ></li>
+</ul>
+<br><br>
+
+
+    <p><strong>Modifier : </strong></p>
+
+    <form name="form" th:action="@{|/Carnet/${carnet.id}|}" th:object="${carnet}"  method="POST">
+        <input th:type="hidden" th:name="_method" th:value="PUT">
+
+        <label>Civilite:</label> <input type="radio" id="MME"
+                                        th:field="*{civilite}" value="MME"> <input type="radio"
+                                                                                   id="M" th:field="*{civilite}" value="M">
+        <p th:if="${#fields.hasErrors('civilite')}" th:errors="*{civilite}"></p><br>
+
+        <label>Nom:</label> <input type="text" id="nom" th:field="*{nom}">
+        <p th:if="${#fields.hasErrors('nom')}" th:errors="*{nom}"></p><br>
+
+        <label for="prenom">Prenom:</label> <input type="text" id="prenom"
+                                                   th:field="*{prenom}">
+        <p th:if="${#fields.hasErrors('prenom')}" th:errors="*{prenom}"></p><br>
+
+        <label>Date de naissance:</label> <input type="date"
+                                                 id="dateDeNaissance" th:field="*{dateDeNaissance}">
+        <p th:if="${#fields.hasErrors('dateDeNaissance')}"
+           th:errors="*{dateDeNaissance}"></p><br>
+
+        <label>Telephone: </label> <input type="text" id="tel"
+                                          th:field="*{tel}">
+        <p th:if="${#fields.hasErrors('tel')}" th:errors="*{tel}"></p><br>
+
+        <label>Email :</label> <input type="text" id="email"
+                                      th:field="*{email}">
+        <p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p><br>
+
+        <label>Code Postal :</label> <input type="text" id="cp"
+                                            th:field="*{cp}">
+        <p th:if="${#fields.hasErrors('cp')}" th:errors="*{cp}"></p><br>
+
+        <label>Ville :</label> <input type="text" id="ville"
+                                      th:field="*{ville}"><br>
+        <p th:if="${#fields.hasErrors('ville')}" th:errors="*{ville}"></p><br>
+
+        <input type="submit" value="valider">
+
+    </form>
+
+
+
+
+    <p><strong>Supprimer : </strong></p>
+
+    <form name="form2" th:action="@{|/Carnet/${carnet.id}|}" th:object="${carnet}"  method="post">
+        <input th:type="hidden" th:name="_method" th:value="DELETE">
+
+        <input type="submit" value="valider">
+
+    </form>
+
+</div>
+
+</body>
+</html>
