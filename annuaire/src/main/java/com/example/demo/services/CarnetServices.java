@@ -2,7 +2,7 @@ package com.example.demo.services;
 
 
 import com.example.demo.entities.Carnet;
-import com.example.demo.repositories.CarnetRespository;
+import com.example.demo.repositories.CarnetRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class CarnetServices {
 
     @Autowired
-    private  CarnetRespository cr;
+    private CarnetRepository cr;
 
     public ArrayList<Carnet> getAllCarnets(){
 

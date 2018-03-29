@@ -21,8 +21,8 @@ public class CarnetController {
     @Autowired
     private CarnetServices cs;
 
-    @RequestMapping("/AddTest")
-    public ModelAndView ajoutTest() {
+    @RequestMapping("/AddCarnet")
+    public ModelAndView ajoutCarnet() {
         cs.add(new Carnet(1L, Civilite.M, "Besson", "Luc", "1959-10-18", "+33618555723", "mohamed.chebbi@viacesi.fr", "75015", "Paris"));
         cs.add(new Carnet(2L, Civilite.MME, "Ullmann", "Liv", "1938-12-16", "+3361850423", "chebbimohamed1987@live.fr", "59800", "Tokyo"));
         cs.add(new Carnet(3L, Civilite.M, "Lynch", "David", "1946-01-20", "+3361850423", "chebbimohamed1987@gmail.com", "59801", "Missoula"));

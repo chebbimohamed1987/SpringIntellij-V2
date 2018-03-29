@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+    <link rel="stylesheet" href="../../static/css/style.css">
+</head>
+<body>
+
+
+<!--
+ <p th:text="${liste}"></p>
+-->
+
+
+<!--<p>Supprimer tous les contacts: </p>
+
+<form name="form2" th:action="@{/DeleteAll}"   method="POST">
+
+    <input type="submit" value="valider">
+</form>
+<p>Supprimer le contact: </p>
+
+
+<form name="form2" th:action="@{/Affichage}" method="POST">
+
+    <select name="maliste" th:field="${liste}">
+
+        <option th:each="compte : ${liste}" th:name="${compte.id}" th:value="${compte.id}" th:utext="${compte.id}" />
+    </select>
+
+
+    <input type="submit" value="Afficher">
+
+</form>-->
+
+
+ <div>
+ <ul th:each="compte:${liste}">
+
+
+         <li th:text="${compte.id}" ></li>
+   <li th:text="${compte.numero}" ></li>
+    <li th:text="${compte.customerName}" ></li>
+      <li th:text="${compte.bankOffice}" ></li>
+
+
+
+ </ul>
+
+
+
+</div>
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+    <link rel="stylesheet" href="../../static/css/style.css">
+</head>
+<body>
+
+
+<!--
+ <p th:text="${liste}"></p>
+-->
+
+
+<!--<p>Supprimer tous les contacts: </p>
+
+<form name="form2" th:action="@{/DeleteAll}"   method="POST">
+
+    <input type="submit" value="valider">
+</form>
+<p>Supprimer le contact: </p>
+
+
+<form name="form2" th:action="@{/Affichage}" method="POST">
+
+    <select name="maliste" th:field="${liste}">
+
+        <option th:each="adress : ${liste}" th:name="${adress.id}" th:value="${adress.id}" th:utext="${adress.id}" />
+    </select>
+
+
+    <input type="submit" value="Afficher">
+
+</form>-->
+
+
+ <div>
+ <ul th:each="adress:${liste}">
+
+
+         <li th:text="${adress.id}" ></li>
+         <li th:text="${adress.number}" ></li>
+         <li th:text="${adress.street}" ></li>
+         <li th:text="${adress.town}" ></li>
+         <li th:text="${adress.zipcode}" ></li>
+
+
+
+ </ul>
+
+
+
+</div>
+
+
+
+
+
+
+</body>
+</html>

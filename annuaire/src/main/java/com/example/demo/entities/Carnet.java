@@ -6,10 +6,11 @@ import javax.validation.constraints.*;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.util.ArrayList;
+import java.util.List;
 
 
 @Entity
-@Table(name = "contact")
+@Table(name = "contacts")
 public class Carnet {
 
     @Id
@@ -49,13 +50,20 @@ public class Carnet {
     private String ville;
 
 
-    public Carnet() { }
+    @ManyToMany
+    private List<Adress> adresses;
+    @OneToMany (mappedBy = "carnet")
+    private List<Compte> comptes;
 
 
+    public Carnet() {
+        adresses =  new ArrayList<>();
+        comptes= new ArrayList<>();
+    }
 
 
     public Carnet(Long id, Civilite civilite, String nom, String prenom, String dateDeNaissance, String tel,
-                  String email, String cp, String ville) {
+                  String email, String cp, String ville ) {
 
         this.id = id;
         this.civilite = civilite;
@@ -66,18 +74,23 @@ public class Carnet {
         this.email = email;
         this.cp = cp;
         this.ville = ville;
+
+
     }
 
 
+    public void setAdresses(List<Adress> adresses) {
+        this.adresses = adresses;
+    }
 
 
+    public List<Compte> getComptes() {
+        return comptes;
+    }
 
-
-
-
-
-
-
+    public void setComptes(List<Compte> comptes) {
+        this.comptes = comptes;
+    }
 
 
     public Long getId() {
@@ -152,5 +165,12 @@ public class Carnet {
         this.ville = ville;
     }
 
+    public List<Adress> getAdresses() {
+        return adresses;
+    }
+
+    public void setAdresses(ArrayList<Adress> adresses) {
+        this.adresses = adresses;
+    }
 }
 
